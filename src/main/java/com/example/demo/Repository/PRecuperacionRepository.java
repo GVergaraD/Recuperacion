@@ -13,7 +13,7 @@ import java.util.List;
 //esto implementa las operaciones CRUD para ser usadas
 @Repository("RepositoryPRecuperacion")
 public interface PRecuperacionRepository extends CrudRepository<PRecuperacion, Long>{
-	public abstract PRecuperacion findById(long id);
+	//public abstract PRecuperacion findById(long id);
 
 	public abstract List<PRecuperacion> findAll();
 

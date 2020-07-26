@@ -13,7 +13,7 @@ import java.util.List;
 //esto implementa las operaciones CRUD para ser usadas
 @Repository("RepositorySalaR")
 public interface SalaRRepository extends CrudRepository<SalaR, Long>{
-	public abstract SalaR findById(long id);
+	//public abstract SalaR findById(long id);
 
 	public abstract List<SalaR> findAll();
 

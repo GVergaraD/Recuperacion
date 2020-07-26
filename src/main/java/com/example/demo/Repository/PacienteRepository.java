@@ -13,7 +13,7 @@ import java.util.List;
 //esto implementa las operaciones CRUD para ser usadas
 @Repository("RepositoryPaciente")
 public interface PacienteRepository extends CrudRepository<Paciente, Long>{
-    Paciente findById(int id);
+    //Paciente findById(Long id);
     Paciente findByNombre(String nombre);
     //List<Paciente> findByNombre(String nombre);
     public abstract List<Paciente> findAll();

@@ -28,9 +28,25 @@ public class SalaRController {
     	return new ResponseEntity<SalaR>(salar1,HttpStatus.CREATED);
     }
     @GetMapping("")
-    public List<SalaR> getSalasR(){
-    	return salarService.listAll();
+    @ResponseBody
+    public Iterable<SalaR> getSala(@RequestParam(required = false) Integer disponibilidad) {
+    	if(disponibilidad == null) {
+            return salarService.listAll();
+        }
+    	else{
+    	    try{
+    	        return salarService.getSala(disponibilidad);
+            } catch (Exception f){
+    	        return null;
+            }
+
+        }
     }
 
     //@GetMapping("")
+    @GetMapping("/{id}")
+    public SalaR getSala(@PathVariable("id") Long id) {
+        return salarService.getSala(id);
+
+    }
 }

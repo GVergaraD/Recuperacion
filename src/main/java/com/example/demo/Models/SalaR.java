@@ -12,13 +12,13 @@ public class SalaR {
     private Long id;
 
     @Column(name = "disponibilidad")
-    private Long disponibilidad;
+    private Integer disponibilidad;
 
     public Long getId() {
         return id;
     }
 
-    public Long getDisponibilidad() {
+    public Integer getDisponibilidad() {
         return disponibilidad;
     }
 
@@ -26,7 +26,7 @@ public class SalaR {
         this.id = id;
     }
 
-    public void setDisponibilidad(Long disponibilidad) {
+    public void setDisponibilidad(Integer disponibilidad) {
         this.disponibilidad = disponibilidad;
     }
 

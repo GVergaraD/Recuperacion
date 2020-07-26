@@ -39,10 +39,10 @@ public class PacienteService {
         return pacienteRepository.findByNombre(name);
 
     }
-    public Paciente findbyId(int id){
-        return pacienteRepository.findById(id);
+    //public Paciente getPaciente(Long id){
+    //    return pacienteRepository.findById(id);
 
-    }
+    //}
 
     //delete 1 paciente por su id
     @Transactional

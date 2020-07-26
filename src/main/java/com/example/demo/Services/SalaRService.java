@@ -2,6 +2,7 @@ package com.example.demo.Services;
 
 
 import com.example.demo.Models.SalaR;
+import com.example.demo.NotFoundE.SalaNFE;
 import com.example.demo.Repository.SalaRRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,13 +21,13 @@ public class SalaRService {
 
 
 	//request
-	public List<SalaR> listAll() {
+	public Iterable<SalaR> listAll() {
 		return (salarRepository.findAll());
 	}
 	public Optional<SalaR> listOne(Long id) {
 		return (salarRepository.findById(id));
 	}
-	public List<SalaR> listByDisponibilidad(Integer disponibilidad) {
+	public List<SalaR> listByDisponibilidad(int disponibilidad) {
 		return (salarRepository.findByDisponibilidad(disponibilidad));
 	}
 
@@ -35,8 +36,16 @@ public class SalaRService {
 		return salarRepository.save(salar);
 	}
 
+
+	public SalaR getSala(Long id) {
+		return salarRepository.findById(id)
+				.orElseThrow(() -> new SalaNFE(id));
+	}
+	public List<SalaR> getSala(Integer disponibilidad) {
+		return salarRepository.findByDisponibilidad(disponibilidad);
+	}
+
 	//delete 1 sala por id
-	@Transactional
 	public void deleteSalaR(Long id) {
 		salarRepository.deleteById(id);
 	}

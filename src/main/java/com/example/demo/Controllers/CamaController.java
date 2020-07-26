@@ -20,27 +20,28 @@ public class CamaController {
 
 	@Autowired
 	@Qualifier("ServicioCama")
-    CamaService camaService;
+	CamaService camaService;
 
 	@PostMapping("")
 	public ResponseEntity<Cama> addCama(@RequestBody Cama cama) {
 		//
 		Cama cama1 = camaService.saveOrUpdateCama(cama);
-		return new ResponseEntity<Cama>(cama1,HttpStatus.CREATED);
+		return new ResponseEntity<Cama>(cama1, HttpStatus.CREATED);
 	}
+
 	@GetMapping("")
 	@ResponseBody
 	public Iterable<Cama> getCama(@RequestParam(required = false) @Validated String estado) {
-	    if( estado == null) {
+		if (estado == null) {
 			return camaService.listAll();
-		}
-	    else{
-	    	return camaService.getCama(estado);
+		} else {
+			return camaService.getCama(estado);
 		}
 
-    }
+	}
+
 	@PostMapping("/{id}")
-	public ResponseEntity<Cama> updatecama(@PathVariable("id") Long id,@RequestBody Cama Cama) {
+	public ResponseEntity<Cama> updatecama(@PathVariable("id") Long id, @RequestBody Cama Cama) {
 		Cama encontrado = camaService.getCama(id);
 
 		Cama cama = camaService.saveOrUpdateCama(Cama);
@@ -48,15 +49,14 @@ public class CamaController {
 	}
 
 
-    @GetMapping("/{id}")
-	public Cama getCama(@PathVariable("id") Long id){
+	@GetMapping("/{id}")
+	public Cama getCama(@PathVariable("id") Long id) {
 		return camaService.getCama(id);
 	}
 
-	//@GetMapping("/{disponible}")
-	//public Cama getCama(@PathVariable("estado") String estado){
-	//	return camaService.getCama(estado);
-	//}
-    //@GetMapping("/disponibles")
-    //public
+	@DeleteMapping("/(id")
+	public void deleteCama(@PathVariable("id") Long id){
+		Cama c = camaService.getCama(id);
+		camaService.deleteCama(id);
+	}
 }
