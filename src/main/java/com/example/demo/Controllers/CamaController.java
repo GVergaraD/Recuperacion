@@ -54,7 +54,15 @@ public class CamaController {
 		return camaService.getCama(id);
 	}
 
-	@DeleteMapping("/(id")
+	@PutMapping("/{id}")
+	public Cama updateCama(@PathVariable Long id, @RequestBody Cama cama) {
+		Cama c = getCama(id);
+		c.setEstado(cama.getEstado());
+		return camaService.saveOrUpdateCama(c);
+
+	}
+
+	@DeleteMapping("/{id}")
 	public void deleteCama(@PathVariable("id") Long id){
 		Cama c = camaService.getCama(id);
 		camaService.deleteCama(id);

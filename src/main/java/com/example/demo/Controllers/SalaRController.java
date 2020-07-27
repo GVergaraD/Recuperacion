@@ -49,4 +49,18 @@ public class SalaRController {
         return salarService.getSala(id);
 
     }
+
+    @PutMapping("/{id}")
+    public SalaR updateSala(@PathVariable Long id, @RequestBody SalaR salaR) {
+        SalaR sala = getSala(id);
+        sala.setDisponibilidad(salaR.getDisponibilidad());
+        return salarService.saveOrUpdateSalaR(sala);
+
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteSala(@PathVariable("id") Long id){
+        SalaR s = salarService.getSala(id);
+        salarService.deleteSalaR(id);
+    }
 }
