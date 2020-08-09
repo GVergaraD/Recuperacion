@@ -14,6 +14,9 @@ public class SalaR {
     @Column(name = "disponibilidad")
     private Integer disponibilidad;
 
+    @Column(name = "capacidad")
+    private Integer capacidad;
+
     public Long getId() {
         return id;
     }
@@ -46,4 +49,12 @@ public class SalaR {
     )
     @JoinColumn(name = "salar_id")
     private List<Paciente> pacientes = new ArrayList<>();
+
+    public Integer getCapacidad() {
+        return capacidad;
+    }
+
+    public void setCapacidad(Integer capacidad) {
+        this.capacidad = capacidad;
+    }
 }

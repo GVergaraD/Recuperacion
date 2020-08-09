@@ -16,6 +16,9 @@ public class Cama {
     @Column(name = "estado")
     private String estado;
 
+    @Column(name = "nombre_paciente")
+    private String nombre;
+
     public Long getId() {
         return id;
     }
@@ -30,5 +33,13 @@ public class Cama {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

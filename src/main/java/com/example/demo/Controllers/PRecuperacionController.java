@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 //esto mapea la app en requests URL->HTTP
 @RestController
 //localhost:puerto/api/pacientes
